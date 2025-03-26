@@ -233,6 +233,7 @@ services:
       - shard2-r2
       - shard2-r3
       - mongos_router
+      - redis_1
     ports:
       - 8080:8080
     environment:
