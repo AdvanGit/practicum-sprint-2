@@ -48,17 +48,18 @@ db.helloDoc.countDocuments();
 exit();
 EOF
 
-echo "check shard-1 documents count"
+echo "check shard-1 documents count and replicas status"
 docker compose exec -it shard1-r1 mongosh --port 27011 --quiet <<EOF
+rs.status()
 use somedb;
 db.helloDoc.countDocuments();
 exit();
 EOF
 
-echo "check shard-2 documents count"
+echo "check shard-2 documents count and replicas status"
 docker compose exec -it shard2-r1 mongosh --port 27014 --quiet <<EOF
+rs.status()
 use somedb;
 db.helloDoc.countDocuments();
 exit();
 EOF
-
